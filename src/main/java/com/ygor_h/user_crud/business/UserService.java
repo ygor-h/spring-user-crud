@@ -30,7 +30,8 @@ public class UserService {
     public void updateUserByCpf(String cpf, User user){
         User userEntity = getUserByCpf(cpf);
         User updateUser = User.builder()
-                .cpf(cpf)
+                .cpf(user.getCpf() != null ?
+                        user.getCpf() : cpf)
                 .email(user.getEmail() != null ?
                         user.getEmail() : userEntity.getEmail())
                 .name(user.getName() != null ?
